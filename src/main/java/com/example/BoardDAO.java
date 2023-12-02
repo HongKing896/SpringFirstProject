@@ -17,15 +17,12 @@ import java.util.List;
 public class BoardDAO {
     @Autowired
     private JdbcTemplate template ;
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    ResultSet rs = null;
     public int insertBoard(BoardVO vo){
         String sql = "insert into BOARD(title, writer, content, category) values ("
-                +" "+vo.getTitle()+","
-                +" "+vo.getWriter()+","
-                +" "+vo.getContent()+","
-                +" "+vo.getCategory()+")";
+                +"'"+vo.getTitle()+"',"
+                +"'"+vo.getWriter()+"',"
+                +"'"+vo.getContent()+"',"
+                +"'"+vo.getCategory()+"')";
         return template.update(sql);
     }
     public int deleteBoard(int seq){
@@ -33,10 +30,10 @@ public class BoardDAO {
         return template.update(spl);
     }
     public int updateBoard(BoardVO vo){
-        String sql = "update BOARD set title=" + vo.getTitle()+","
-                +"writer="+vo.getWriter() + ","
-                +"content="+vo.getContent() + ","
-                +"category="+vo.getCategory() + "where seq="+vo.getSeq();
+        String sql = "update BOARD set title='" + vo.getTitle()+"',"
+                +"writer='"+vo.getWriter() + "',"
+                +"content='"+vo.getContent() + "',"
+                +"category='"+vo.getCategory() + "'where seq="+vo.getSeq();
         return template.update(sql);
     }
     public BoardVO getBoard(int seq){

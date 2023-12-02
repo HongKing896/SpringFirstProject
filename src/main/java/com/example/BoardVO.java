@@ -9,7 +9,7 @@ public class BoardVO {
     private String writer;
     private String content;
     private Date regdate;
-    private int cnt;
+     private int cnt;
 
     public int getSeq() {
         return seq;

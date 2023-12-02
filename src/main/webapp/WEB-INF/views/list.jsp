@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="path" value ="${pageContext.request.contextPath}"/>
 <%--
   Created by IntelliJ IDEA.
   User: Whan
@@ -6,7 +7,8 @@
   Time: 오후 10:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+
 <html>
 <head>
     <title>list</title>
@@ -40,6 +42,7 @@
 </head>
 <body>
 <h1>자유게시판</h1>
+<table id ='list' width="90%">
 <tr>
     <th>Id</th>
     <th>Category</th>
@@ -53,7 +56,6 @@
 </tr>
 
 <c:forEach items="${list}" var="u">
-<table>
     <tr>
         <td>${u.seq}</td>
         <td>${u.category}</td>
